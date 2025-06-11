@@ -42,7 +42,7 @@ This is a Flask-based RESTful API for managing an app marketplace called *AppHub
   - user_id: Foreign Key to User
   - created_at: Timestamp
  
-## 🔗 Relationships
+## Relationships
 
 - *User → App*: One-to-Many  
   - A single user can have many apps.
