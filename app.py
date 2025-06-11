@@ -1,6 +1,7 @@
 
 from flask import Flask
 from resources.user import UserResource
+from resources.apps import AppResource
 from flask_restful import Api
 
 app = Flask(__name__)
@@ -42,33 +43,33 @@ def index():
 
 #APP
 #creating app
-@app.post("/apps")
-def create_app():
-    return {"message": "app created successfully"}
+# @app.post("/apps")
+# def create_app():
+#     return {"message": "app created successfully"}
 
 
 # to retrieve all apps
-@app.get("/apps")
-def get_all_apps():
-    return []
+# @app.get("/apps")
+# def get_all_apps():
+#     return []
 
 
 # to retrieve a single app
-@app.get("/apps/<id>")
-def get_single_app(id):
-    return {}
+# @app.get("/apps/<id>")
+# def get_single_app(id):
+#     return {}
 
 
 # to update app
-@app.patch("/apps/<id>")
-def update_app(id):
-    return {"message": "app updated successfully"}
+# @app.patch("/apps/<id>")
+# def update_app(id):
+#     return {"message": "app updated successfully"}
 
 
 # to delete an app
-@app.delete("/apps/<id>")
-def delete_app(id):
-    return {"message": "app deleted successfully"}
+# @app.delete("/apps/<id>")
+# def delete_app(id):
+#     return {"message": "app deleted successfully"}
 
 #DOWNLOAD
 
@@ -126,4 +127,5 @@ def delete_review(id):
     return {"message": "review deleted successfully"}
 
 
-api.add_resource(UserResource, "/users", "/users/<user_id>")
+api.add_resource(UserResource, "/users", "/users/<int:user_id>")
+api.add_resource(AppResource, "/apps", "/apps/<int:id>")
