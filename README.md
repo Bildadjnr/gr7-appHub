@@ -41,6 +41,18 @@ This is a Flask-based RESTful API for managing an app marketplace called *AppHub
   - name: Text
   - user_id: Foreign Key to User
   - created_at: Timestamp
+ 
+## 🔗 Relationships
+
+- *User → App*: One-to-Many  
+  - A single user can have many apps.
+  - Each app belongs to one user.
+
+*Database linkage:*
+- apps.user_id is a foreign key referencing users.id
+- The ORM relationship allows:
+  - Accessing a user’s apps via user.apps
+  - Accessing the app’s owner via app.user
 
 ##  Migrations
 
