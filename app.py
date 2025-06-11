@@ -4,11 +4,20 @@ from resources.apps import AppResource
 from resources.download import DownloadResource
 from resources.review import ReviewResource
 from flask_restful import Api
+from flask_migrate import Migrate
+from models import db
 
 app = Flask(__name__)
 
 # link flask-restful with flask
 api = Api(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///apphub.db"
+app.config["SQLALCHEMY_ECHO"] = True
+
+
+migrate = Migrate(app, db)
+
+db.init_app(app)
 
 
 # routes

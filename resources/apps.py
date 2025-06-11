@@ -1,13 +1,16 @@
 from flask_restful import Resource
+from models import App
 
 
 class AppResource(Resource):
     def get(self, id=None):
         if id == None:
-            return []
+            apps = App.query.all()
+            return apps
 
         else:
-            return {}
+            app = App.query.filter_by(id=id).first()
+            return app
 
     def post(self):
         return {"message": "App created successfully"}
