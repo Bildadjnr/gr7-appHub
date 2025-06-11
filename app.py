@@ -1,7 +1,7 @@
-
 from flask import Flask
 from resources.user import UserResource
 from resources.apps import AppResource
+from resources.download import DownloadResource
 from flask_restful import Api
 
 app = Flask(__name__)
@@ -10,39 +10,39 @@ app = Flask(__name__)
 api = Api(app)
 
 
-#routes 
+# routes
 @app.get("/")
 def index():
     return {"message": "Welcome to Group 7 app"}
 
 
-#user
+# user
 # @app.post("/users")
 # def create_user():
 #     return {"message": "user created successfully"}
 
-#to retrieve all users 
+# to retrieve all users
 # @app.get("/users")
 # def get_all_users():
 #     return []
 
-#to retrieve a single user 
+# to retrieve a single user
 # @app.get("/users/<id>")
 # def get_single_user (id):
 #     return {}
 
-#to update a user
+# to update a user
 # @app.patch("/users/<id>")
 # def update_user(id):
 #     return {"message": "user updated successfully"}
 
-#to delete a user 
+# to delete a user
 # @app.delete("/users/<id>")
 # def delete_user(id):
 #     return {"message": "user deleted successfully"}
 
-#APP
-#creating app
+# APP
+# creating app
 # @app.post("/apps")
 # def create_app():
 #     return {"message": "app created successfully"}
@@ -71,33 +71,11 @@ def index():
 # def delete_app(id):
 #     return {"message": "app deleted successfully"}
 
-#DOWNLOAD
 
-#creating download
-@app.post("/downloads")
-def create_download():
-    return {"message": "download created successfully"}
-
-# to retrieve all downloads
-@app.get("/downloads")
-def get_all_downloads():
-    return []
+# REVIEW
 
 
-# to retrieve a single download
-@app.get("/downloads/<id>")
-def get_single_download(id):
-    return {}
-
-
-# to delete download
-@app.delete("/downloads/<id>")
-def delete_download(id):
-    return {"message": "download deleted successfully"}
-
-#REVIEW
-
-#creating a review
+# creating a review
 @app.post("/reviews")
 def create_review():
     return {"message": "review created successfully"}
@@ -129,3 +107,4 @@ def delete_review(id):
 
 api.add_resource(UserResource, "/users", "/users/<int:user_id>")
 api.add_resource(AppResource, "/apps", "/apps/<int:id>")
+api.add_resource(DownloadResource, "/downloads", "/downloads/<int:id>")
