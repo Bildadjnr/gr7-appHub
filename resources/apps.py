@@ -4,10 +4,9 @@ from models import App
 
 class AppResource(Resource):
     def get(self, id=None):
-        if id == None:
+        if id is None:
             apps = App.query.all()
             return apps
-
         else:
             app = App.query.filter_by(id=id).first()
             return app

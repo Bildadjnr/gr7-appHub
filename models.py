@@ -24,3 +24,19 @@ class App(db.Model):
     name = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, ForeignKey("users.id"))
     created_at = db.Column(db.TIMESTAMP)
+
+class Download(db.Model):
+    __tablename__ = "downloads"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, ForeignKey("users.id"))
+    app_id = db.Column(db.Integer, ForeignKey("apps.id"))
+    created_at = db.Column(db.TIMESTAMP)
+
+class Review(db.Model):
+    __tablename__ = "reviews"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, ForeignKey("users.id"))
+    app_id = db.Column(db.Integer, ForeignKey("apps.id"))
+    created_at = db.Column(db.TIMESTAMP)

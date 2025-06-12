@@ -4,7 +4,7 @@ from models import User
 
 class UserResource(Resource):
     def get(self, user_id=None):
-        if user_id == None:
+        if user_id is None:
             users = User.query.all()
             return users
         else:
