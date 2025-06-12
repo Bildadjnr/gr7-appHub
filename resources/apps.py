@@ -6,10 +6,10 @@ class AppResource(Resource):
     def get(self, id=None):
         if id is None:
             apps = App.query.all()
-            return apps
+            return [app.to_dict() for app in apps]
         else:
             app = App.query.filter_by(id=id).first()
-            return app
+            return app.to_dict()
 
     def post(self):
         return {"message": "App created successfully"}

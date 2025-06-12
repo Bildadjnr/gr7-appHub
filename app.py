@@ -26,7 +26,7 @@ def index():
     return {"message": "Welcome to Group 7 app"}
 
 
-api.add_resource(UserResource, "/users", "/users/<int:user_id>")
+api.add_resource(UserResource, "/users", "/users/<int:id>")
 api.add_resource(AppResource, "/apps", "/apps/<int:id>")
 api.add_resource(DownloadResource, "/downloads", "/downloads/<int:id>")
 api.add_resource(ReviewResource, "/reviews", "/reviews/<int:id>")
